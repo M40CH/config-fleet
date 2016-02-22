@@ -8,7 +8,7 @@ Restart=always
 TimeoutStartSec=10m
 ExecStartPre=-/usr/bin/docker kill dnsmasq
 ExecStartPre=-/usr/bin/docker rm -f dnsmasq
-ExecStartPre=-/usr/bin/docker pull janeczku/go-dnsmasq:release-1.0.0
+ExecStartPre=-/usr/bin/docker pull regi01:5000/go-dnsmasq:release-1.0.0
 ExecStartPre=/usr/bin/sh -c " \
   dig core-1 core-5 core-9 +short | tr '\n' ',' > /tmp/ns && \
   awk '/^nameserver/ {print $2; exit}' /run/systemd/resolve/resolv.conf >> /tmp/ns"
